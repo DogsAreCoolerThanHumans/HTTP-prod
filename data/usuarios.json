@@ -1,0 +1,22 @@
+[
+    {
+        "usuario": "admin",
+        "contraseña": "admin"
+    },
+    {
+        "usuario": "cisco",
+        "contraseña": "cisco"
+    },
+    {
+        "usuario": "tienda",
+        "contraseña": "Dogs1234"
+    },
+    {
+        "usuario": "ola",
+        "contraseña": "Hola1234"
+    },
+    {
+        "usuario": "1234",
+        "contraseña": "5678"
+    }
+]

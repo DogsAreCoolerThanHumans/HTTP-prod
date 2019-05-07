@@ -1,0 +1,37 @@
+[
+    {
+        "nombre": "guau",
+        "precio": 35,
+        "marca": "corgi",
+        "descripción": "rojo y manchas blancas",
+        "existencia": 1
+    },
+    {
+        "nombre": "guau guau",
+        "precio": 30,
+        "marca": "corgi",
+        "descripción": "negro y manchas blancas",
+        "existencia": 1
+    },
+    {
+        "nombre": "guau guau guau",
+        "precio": 4,
+        "marca": "husky",
+        "descripción": "gris y blanco",
+        "existencia": 2
+    },
+    {
+        "nombre": "woof",
+        "precio": 1,
+        "marca": "golden retriever",
+        "descripción": "dorado",
+        "existencia": 1
+    },
+    {
+        "nombre": "woof woof",
+        "precio": 1,
+        "marca": "labrador",
+        "descripción": "miel",
+        "existencia": 1
+    }
+]
