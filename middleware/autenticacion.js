@@ -1,32 +1,28 @@
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
  
-const users = JSON.parse(fs.readFileSync('./data/usuarios.json')); // usuarios como archivo
+const users = JSON.parse(fs.readFileSync('./data/usuarios.json')); // archivo/base de usuarios
 const keys = JSON.parse(fs.readFileSync('./configuracion/keys.json')); //como doc
  
  
 module.exports = (req, res, next) => {
-    // Get token from header
-    const token = req.header('x-auth');
-    const xuser = req.header('x-user');
+    const token = req.header('x-auth'); //headers para token
+    const xuser = req.header('x-user'); //headers para usuario en uso
  
-    // Verificar usuario
-    if (!users.find(user => user.usuario === xuser)){
-        res.status(406).json({msg: 'El usuario no existe'});
+    if (!users.find(user => user.usuario === xuser)){ //si usuario no es correcto
+        res.status(406).json({msg: 'Usuario no existe'}); //msje de error
         return;
     }
  
-    // Si no existe un token se rechaza la solicitud
-    if (!token) {
-        return res.status(401).json({msg: 'No token, authorization denied'});
+    if (!token) { //rechaza solicitud sin token
+        return res.status(401).json({msg: 'Sin token'});
     }
  
-    // Verificar token
-    try {
+    try { //si token sigue activo
         if(jwt.verify(token, keys.jwtSecret)){
             next();
         }
     } catch (e) {
-        res.status(401).json({msg: 'Token is not valid'});
+        res.status(401).json({msg: 'Token inválido'});
     }
 };

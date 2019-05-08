@@ -7,31 +7,24 @@ const auth = require('../middleware/autenticacion');
 const users = JSON.parse(fs.readFileSync('./data/usuarios.json'));
 const keys = JSON.parse(fs.readFileSync('./configuracion/keys.json'));
 
-// @route   POST usuarios/login
-// @desc    Autenticar usuario y generar token
-// @access  Public
-router.post('/login', (req, res) => {
-    const {usuario, contraseña} = req.body;
+router.post('/login', (req, res) => { //post para loguear user
+    const {usuario, contraseña} = req.body; //valores a logear (dados en entrada de p/e Postman)
 
     try {
-        // Checar usuario y contraseña
         if (!users.find(user => {
-            return user.contraseña === contraseña && user.usuario === usuario //como el doc json
+            return user.contraseña === contraseña && user.usuario === usuario //verifica user y pass (como en json)
         })) {
-            return res.status(400).json({errors: [{msg: 'Invalid Credentials'}]});
+            return res.status(400).json({errors: [{msg: 'Usuario/contraseña no existen'}]}); //msje de error devuelto
         }
 
-        console.log('Sesión iniciada (debugging)');
-
-        // Se agrega payload
+        console.log('Sesión iniciada (debugging)'); //para pruebas
         const payload = {
         };
 
-        // Expira en 5 minutos
-        jwt.sign(
+        jwt.sign( //desde web token
             payload,
             keys.jwtSecret,
-            {expiresIn: 300},
+            {expiresIn: 300}, //expiración fija
             (err, token) => {
                 if (err) throw err;
                 res.json({token});
@@ -39,14 +32,11 @@ router.post('/login', (req, res) => {
 
     } catch (e) {
         console.error(e.message);
-        res.status(500).send('Server error');
+        res.status(500).send('Error en servidor');
     }
 });
 
-// @route   POST usuarios/logout
-// @desc    Modifica el jwtSecret
-// @access  Private
-router.post('/logout', auth, (req, res) => {
+router.post('/logout', auth, (req, res) => { //termina sesión según usuario especificado 
     const newToken = {
         "jwtSecret": makeid(50)
     };
@@ -54,9 +44,7 @@ router.post('/logout', auth, (req, res) => {
     res.status(200).send('User logged out');
 });
 
-
-// Genera una llave aleatoria con letras y numeros
-function makeid(length) {
+function makeid(length) { //generador de ids dados parámetros/rangos
     var result           = '';
     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;
