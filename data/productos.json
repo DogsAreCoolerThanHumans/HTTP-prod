@@ -1,37 +1,43 @@
-[
-    {
-        "nombre": "guau",
-        "precio": 35,
-        "marca": "corgi",
-        "descripción": "rojo y manchas blancas",
-        "existencia": 1
-    },
-    {
-        "nombre": "guau guau",
-        "precio": 30,
-        "marca": "corgi",
-        "descripción": "negro y manchas blancas",
-        "existencia": 1
-    },
-    {
-        "nombre": "guau guau guau",
-        "precio": 4,
-        "marca": "husky",
-        "descripción": "gris y blanco",
-        "existencia": 2
-    },
-    {
-        "nombre": "woof",
-        "precio": 1,
-        "marca": "golden retriever",
-        "descripción": "dorado",
-        "existencia": 1
-    },
-    {
-        "nombre": "woof woof",
-        "precio": 1,
-        "marca": "labrador",
-        "descripción": "miel",
-        "existencia": 1
-    }
-]
+[{
+    "nombre": "guau",
+    "precio": 35,
+    "marca": "corgi",
+    "descripción": "rojo y manchas blancas",
+    "existencia": 1,
+    "id": 1
+}, {
+    "nombre": "guau guau",
+    "precio": 30,
+    "marca": "corgi",
+    "descripción": "negro y manchas blancas",
+    "existencia": 1,
+    "id": 2
+}, {
+    "nombre": "guau guau guau",
+    "precio": 4,
+    "marca": "husky",
+    "descripción": "gris y blanco",
+    "existencia": 2,
+    "id": 3
+}, {
+    "nombre": "woof",
+    "precio": 1,
+    "marca": "golden retriever",
+    "descripción": "dorado",
+    "existencia": 1,
+    "id": 3
+}, {
+    "nombre": "woof woof wooooof",
+    "precio": 1,
+    "marca": "labrador",
+    "descripción": "miel",
+    "existencia": 1,
+    "id": 4
+}, {
+    "nombre": "perrito bb",
+    "precio": 11,
+    "marca": "corgi bb",
+    "descripción": "pues es un perrito bonito y asi",
+    "existencia": 12,
+    "id": 5
+}]
